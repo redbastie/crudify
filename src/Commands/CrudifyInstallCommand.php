@@ -18,6 +18,7 @@ class CrudifyInstallCommand extends Command
         $filesystem = new Filesystem;
 
         foreach ($filesystem->allFiles(__DIR__ . '/../../resources/stubs/install') as $stub) {
+            $filesystem->ensureDirectoryExists(base_path($stub->getRelativePath()));
             $path = base_path(Str::replaceLast('.stub', '', $stub->getRelativePathname()));
             $filesystem->put($path, $stub->getContents());
         }
