@@ -2,7 +2,7 @@
 
 Crudify is a Laravel 8 CRUD package which promotes rapid scaffolding and development. It uses a tried and true stack and intuitive techniques that will save you time and hassles.
 
-(video)
+![Laravel 8 CRUD Tutorial Video](https://i.imgur.com/neFz8Ue.png)
 
 ## Requirements
 
