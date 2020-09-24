@@ -1,0 +1,1 @@
+AutoRoute::controller('dummy-route', \App\Http\Controllers\DummyController::class);

@@ -1,0 +1,3 @@
+@import 'variables';
+@import '../../vendor/redbastie/crudify/resources/sass/crudify';
+@import '~bootstrap/scss/bootstrap';

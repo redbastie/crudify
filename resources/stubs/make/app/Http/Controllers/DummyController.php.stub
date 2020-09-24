@@ -1,0 +1,67 @@
+<?php
+
+namespace App\Http\Controllers;
+
+use App\Http\DataTables\DummyDataTable;
+use App\Models\Dummy;
+
+class DummyController extends Controller
+{
+    public function __construct()
+    {
+        $this->middleware('auth');
+    }
+
+    public function getIndex(DummyDataTable $dummyDataTable)
+    {
+        return $dummyDataTable->render('dummy-route.index');
+    }
+
+    public function getCreate()
+    {
+        return view('dummy-route.create');
+    }
+
+    public function postCreate()
+    {
+        request()->validate(Dummy::rules());
+
+        Dummy::query()->create(request()->all());
+
+        return response()->json([
+            'dismiss_modal' => true,
+            'reload_table' => true,
+        ]);
+    }
+
+    public function getShow(Dummy $dummy)
+    {
+        return view('dummy-route.show', compact('dummy'));
+    }
+
+    public function getEdit(Dummy $dummy)
+    {
+        return view('dummy-route.edit', compact('dummy'));
+    }
+
+    public function patchEdit(Dummy $dummy)
+    {
+        request()->validate(Dummy::rules($dummy));
+
+        $dummy->update(request()->all());
+
+        return response()->json([
+            'dismiss_modal' => true,
+            'reload_table' => true,
+        ]);
+    }
+
+    public function deleteDestroy(Dummy $dummy)
+    {
+        $dummy->forceDelete();
+
+        return response()->json([
+            'reload_table' => true,
+        ]);
+    }
+}

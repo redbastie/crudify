@@ -1,0 +1,54 @@
+@import '~@fortawesome/fontawesome-free/css/all.css';
+@import '~datatables.net-bs4/css/dataTables.bootstrap4.css';
+@import '~datatables.net-responsive-bs4/css/responsive.bootstrap4.css';
+
+$gray-100: #f8f9fa;
+$body-bg: $gray-100;
+$font-size-base: 0.9rem;
+$card-cap-bg: #ffffff;
+$border-radius: 0.5rem;
+$border-radius-sm: $border-radius;
+$border-radius-lg: $border-radius;
+$table-hover-bg: $gray-100;
+$enable-validation-icons: false;
+
+.card {
+    border: none !important;
+    box-shadow: 0 0.125rem 0.25rem rgba(0, 0, 0, 0.075);
+}
+
+.card-body table.dataTable {
+    margin-left: -1.25rem;
+    margin-right: -1.25rem;
+    width: calc(100% + 2.5rem);
+}
+table.dataTable tr th {
+    white-space: nowrap;
+}
+table.dataTable tr th, table.dataTable tr td {
+    vertical-align: middle;
+}
+div.dataTables_paginate {
+    overflow-x: auto
+}
+div.dataTables_paginate .pagination {
+    display: inline-table
+}
+div.dataTables_paginate .pagination li {
+    display: table-cell
+}
+
+@media (min-width: 768px) {
+    .card-body table.dataTable tr th:first-child, .card-body table.dataTable tr td:first-child {
+        padding-left: 1.25rem;
+    }
+    .card-body table.dataTable tr th:last-child, .card-body table.dataTable tr td:last-child {
+        padding-right: 1.25rem;
+    }
+}
+
+@media (max-width: 767.98px) {
+    table.dataTable > tbody > tr.child span.dtr-title:empty {
+        display: none;
+    }
+}
