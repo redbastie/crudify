@@ -31,6 +31,14 @@ class CrudifyInstallCommand extends Command
             $filesystem->put(config_path('app.php'), $appConfig);
         }
 
+        $routes = $filesystem->get(base_path('routes/web.php'));
+        $autoRouteImport = 'use Redbastie\Crudify\Helpers\AutoRoute;';
+        if (!Str::contains($routes, $autoRouteImport)) {
+            $routeFacade = 'use Illuminate\Support\Facades\Route;';
+            $routes = str_replace($routeFacade, $routeFacade . PHP_EOL . $autoRouteImport, $routes);
+            $filesystem->put(base_path('routes/web.php'), $routes);
+        }
+
         $packages = json_decode($filesystem->get(base_path('package.json')), true);
         $packages['devDependencies']['@fortawesome/fontawesome-free'] = '^5.14.0';
         $packages['devDependencies']['datatables.net-bs4'] = '^1.10.22';
