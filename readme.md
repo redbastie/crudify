@@ -1,3 +1,9 @@
+# NO LONGER MAINTAINED
+
+This package is no longer maintained. Please consider my latest package here: https://github.com/redbastie/larawire
+
+-----
+
 # Crudify
 
 Crudify is a Laravel 8 CRUD package which promotes rapid scaffolding and development. It uses a tried and true stack and intuitive techniques that will save you time and hassles.
